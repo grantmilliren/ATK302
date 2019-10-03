@@ -10,7 +10,7 @@ function preload() {
   // set each song to loop and then immediately pause it so it doesn't play
 
   song1.loop();
-  song1.stop();
+  song1.pause();
   song2.loop();
   song2.stop();
   song3.loop();
@@ -20,22 +20,22 @@ function preload() {
 
 function setup() {
 
-  createCanvas(800, 800);
+  createCanvas(1200, 1200);
   background('blue');
-  rectMode(CENTER);
-  ellipseMode(CENTER);
+
 
 }
 
 function draw() {
-  background(600);
     rect(width /2, height / 2, 800, 800);
   switch (myState) {
 
     case 0: // trigger the playing, and go immediately to the next state
       fill('blue');
+      text('Hello');
       rect(width / 2, height / 2, 500, 500);
-      song1.play('Misery.mp3');
+      song1.play();
+      song2.stop();
       myState = 1;  // go immediately (the next time) to the next state
       break;
 
@@ -43,7 +43,8 @@ function draw() {
     case 1:
     fill('red');
     rect(width / 2, height / 2, 500, 500);
-      song2.play('BestYears.mp3');
+      song2.play();
+      song2.stop();
       myState = 2;
       break;
 
@@ -52,8 +53,9 @@ function draw() {
     case 2: // trigger the playing, and go immediately to the next state
     fill('green');
     rect(width / 2, height / 2, 500, 500);
-      song3.play('Shrine.mp3');
-      myState = 3;
+      song3.play();
+      song3.stop();
+      myState = 0;
       break;
   }
 
@@ -68,7 +70,7 @@ function mouseReleased() {
   song2.pause();
   song3.pause();
 
-  if (myState > 5) {
+  if (myState > 2) {
     myState = 0;
   }
 }

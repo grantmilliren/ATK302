@@ -10,7 +10,7 @@ function preload() {
   // set each song to loop and then immediately pause it so it doesn't play
 
   song1.loop();
-  song1.pause();
+  song1.stop();
   song2.loop();
   song2.stop();
   song3.loop();
@@ -35,7 +35,6 @@ function draw() {
       text('Hello');
       rect(width / 2, height / 2, 500, 500);
       song1.play();
-      song2.stop();
       myState = 1;  // go immediately (the next time) to the next state
       break;
 
@@ -44,7 +43,6 @@ function draw() {
     fill('red');
     rect(width / 2, height / 2, 500, 500);
       song2.play();
-      song2.stop();
       myState = 2;
       break;
 
@@ -54,7 +52,6 @@ function draw() {
     fill('green');
     rect(width / 2, height / 2, 500, 500);
       song3.play();
-      song3.stop();
       myState = 0;
       break;
   }
@@ -66,9 +63,9 @@ function mouseReleased() {
   myState++;
 
   // pause all the songs
-  song1.pause();
-  song2.pause();
-  song3.pause();
+  song1.stop();
+  song2.stop();
+  song3.stop();
 
   if (myState > 2) {
     myState = 0;

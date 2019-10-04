@@ -1,5 +1,8 @@
 var song1, song2, song3;
-var myState = 0;
+var myState = -1;
+var x = 0;
+var myTimer = 0;
+var image1, image2, image3;
 
 
 function preload() {
@@ -20,54 +23,94 @@ function preload() {
 
 function setup() {
 
-  createCanvas(1200, 1200);
+  createCanvas(500, 500);
   background('blue');
+  image1 = loadImage('YoungChasersCover.jpg');
+  image2 = loadImage('PrettyYears Cover.jpg');
+  image3 = loadImage('MiseryCover.jpg');
 
 
 }
 
 function draw() {
-    rect(width /2, height / 2, 800, 800);
   switch (myState) {
 
+    case -1:
+    background('blue');
+    textSize(32);
+    text("Welcome to my program. These are some songs I have been listening to non-stop for the past few days.", 50, 50, 200, 400);
+
+    myTimer++;
+    if (myTimer > 200){
+      myState = 0;
+    }
+    break;
+
     case 0: // trigger the playing, and go immediately to the next state
-      fill('blue');
-      text('Hello');
-      rect(width / 2, height / 2, 500, 500);
+
       song1.play();
-      myState = 1;  // go immediately (the next time) to the next state
+      myState = 1; // go immediately (the next time) to the next state
       break;
 
 
     case 1:
-    fill('red');
-    rect(width / 2, height / 2, 500, 500);
+      fill('blue');
+      background("#03fcc6");
+      text('best years by circa waves', x, 30);
+      x = x + 3;
+
+      if (x > width) {
+        x = 0 ;
+      }
+
+      image(image1, 100, 0, 400, 200) ;
+
+      break;
+
+    case 2:
       song2.play();
-      myState = 2;
+      myState = 3;
       break;
 
+    case 3: // trigger the playing, and go immediately to the next state
+      fill('green');
+      background("#03fcc6");
+      text("shrine by cymbals eat guitars", x, 30);
+      x = x + 1;
 
+      if (x > width) {
+        x = 0 ;
+      }
+      image(image2, 100, 0, 400, 200) ;
+      break;
 
-    case 2: // trigger the playing, and go immediately to the next state
-    fill('green');
-    rect(width / 2, height / 2, 500, 500);
+      case 4:
       song3.play();
-      myState = 0;
-      break;
+      myState = 5;
+      break ;
+
+      case 5:
+          fill('red');
+          background("#03fcc6");
+          text("misery by michigander", x, 30);
+          image(image3, 100, 0, 400, 200) ;
+      break ;
+
+
   }
 
 
 }
 
 function mouseReleased() {
-  myState++;
+  myState++; // same as myState = myState + 1
 
   // pause all the songs
   song1.stop();
   song2.stop();
   song3.stop();
 
-  if (myState > 2) {
+  if (myState > 5) {
     myState = 0;
   }
 }

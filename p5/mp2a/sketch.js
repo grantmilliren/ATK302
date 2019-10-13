@@ -6,7 +6,7 @@ var image1, image2, image3;
 
 
 function preload() {
-  song1 = loadSound('assets/BestYears.mp3');
+  song1 = loadSound('assets/EmeraldBay.wav');
   song2 = loadSound('assets/Shrine.mp3');
   song3 = loadSound('assets/Misery.mp3');
 

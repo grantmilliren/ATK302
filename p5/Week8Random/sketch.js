@@ -1,4 +1,4 @@
-var bands = ['The National', 'Nickelback', 'Cymbals Eat Guitars', 'Beatles', 'Circa Waves', 'Lil Nas X'];
+var bands = ['Why did the chicken cross the road? \n To get to the other side','The National', 'Nickelback', 'Cymbals Eat Guitars', 'Beatles', 'Circa Waves', 'Lil Nas X'];
 var aRandomBand = '';
 
 function setup() {

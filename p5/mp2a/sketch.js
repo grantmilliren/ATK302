@@ -7,8 +7,8 @@ var image1, image2, image3;
 
 function preload() {
   song1 = loadSound('assets/EmeraldBay.wav');
-  song2 = loadSound('assets/Shrine.mp3');
-  song3 = loadSound('assets/Misery.mp3');
+  song2 = loadSound('assets/InsideMyHead.wav');
+  song3 = loadSound('assets/FarAway.wav');
 
   // set each song to loop and then immediately pause it so it doesn't play
 
@@ -38,7 +38,7 @@ function draw() {
     case -1:
     background('blue');
     textSize(32);
-    text("Welcome to my program. These are some songs I have been listening to non-stop for the past few days.", 50, 50, 200, 400);
+    text("Welcome to my program. These are three original songs of mine.", 50, 50, 200, 400);
 
     myTimer++;
     if (myTimer > 200){
@@ -56,7 +56,7 @@ function draw() {
     case 1:
       fill('blue');
       background("#03fcc6");
-      text('best years by circa waves', x, 30);
+      text('emerald bay by grant milliren', x, 30);
       x = x + 3;
 
       if (x > width) {
@@ -75,7 +75,7 @@ function draw() {
     case 3: // trigger the playing, and go immediately to the next state
       fill('green');
       background("#03fcc6");
-      text("shrine by cymbals eat guitars", x, 30);
+      text("inside my head by grant milliren", x, 30);
       x = x + 1;
 
       if (x > width) {
@@ -92,7 +92,7 @@ function draw() {
       case 5:
           fill('red');
           background("#03fcc6");
-          text("misery by michigander", x, 30);
+          text("far away by grant milliren", x, 30);
           image(image3, 100, 0, 400, 200) ;
       break ;
 

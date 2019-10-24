@@ -15,11 +15,11 @@ function setup() {
   for (var i = 0; i < 5; i++) {
     cars.push(new Car());
   }
-  yodaLeft = loadImage("assets/yodaLeft.gif") ;
-  yodaRight = loadImage("assets/yodaRight.gif");
-  yoda = yodaLeft ;
+  dogLeft = loadImage("assets/Dog.jpeg") ;
+  dogRight = loadImage("assets/Dog2.jpeg");
+  dog = dogLeft ;
 
-  bird = loadImage("assets/bird1.png");
+  dogfood = loadImage("assets/DogFood.jpg");
   birds[0] = loadImage("assets/bird1.png");
   birds[1] = loadImage("assets/bird2.png");
   birds[2] = loadImage("assets/bird3.png");
@@ -96,29 +96,27 @@ function Car() {
   this.r = random(255);
   this.g = random(255);
   this.b = random(255);
-  this.birdNum = floor(random(birds.length-1));
+  this.birdNum = 0;
   this.timer = 0;
-  this.maxTimer = random(10, 30);
   // methods
   this.display = function() {
-    fill(this.r, this.g, this.b);
+    // fill(this.r, this.g, this.b);
     // rect(this.pos.x, this.pos.y, 100, 50);
     // ellipse(this.pos.x - 45, this.pos.y + 25, 50, 50);
     // ellipse(this.pos.x + 45, this.pos.y + 25, 50, 50);
     //image(bird, this.pos.x, this.pos.y, 100, 100);
 image(birds[this.birdNum], this.pos.x, this.pos.y, 100, 100);
 
-  this.timer = this.timer + 1;
-
-  if(this.timer > 30){
-
+  this.timer++;
+  if(this.timer > 20){
     this.birdNum = this.birdNum + 1;
     this.timer = 0;
-    if (this.birdNum > birds.length - 1) //could also put > 2
-      this.birdNum = 0;
   }
 
-}
+  //
+  if (this.birdNum > birds.length - 1) //could also put > 2
+    this.birdNum = 0;
+  }
 
   this.drive = function() {
     this.pos.add(this.vel);
